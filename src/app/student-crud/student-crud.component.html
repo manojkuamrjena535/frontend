@@ -1,0 +1,43 @@
+
+<div class="col-md-3"></div>
+<div class="col-md-6">
+
+<form>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="stdId" [ngModelOptions]="{standalone:true}" >
+      
+      <label for="name">Student Name</label>
+      <input type="name" [(ngModel)]="stdName" [ngModelOptions]="{standalone:true}" class="form-control" id="name"  placeholder="Enter student Name">
+    </div>
+    <div class="form-group">
+      <label for="course">Course</label>
+      <input type="Course" [(ngModel)]="course" [ngModelOptions]="{standalone:true}" class="form-control" id="course" placeholder="Course">
+    </div>
+    <div class="form-group">
+        <label for="Fee">Fee</label>
+        <input type="Fee" [(ngModel)]="fee" [ngModelOptions]="{standalone:true}" class="form-control" id="Fee" placeholder="Fee">
+      </div>
+    <button type="submit" class="btn btn-primary" (click)="save()">Submit</button>
+  </form>
+<br>
+
+    <table class="table">
+       <thead>
+        <h2 *ngIf="!isResult">Loading.......</h2>
+       </thead>
+        <tbody>
+          <tr *ngFor="let arr of stdArray">
+            <th scope="row">{{arr.id}}</th>
+            <td>{{arr.stdName}}</td>
+            <td>{{arr.course}}</td>
+            <td>{{arr.fee}}</td>
+            <td>
+              <button type="button" (click)="editDisplay(arr)">Edit</button>
+              <button type="button" (click)="delete(arr.id)">Delete</button>
+            </td>
+            </tr>
+          
+        </tbody>
+      </table>
+</div>
+<div class="col-md-3"></div>
